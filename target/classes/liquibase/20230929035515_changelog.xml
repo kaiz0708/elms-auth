@@ -1,0 +1,68 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="ADMIN (generated)" id="1695959721382-1">
+        <createTable tableName="db_elms_career">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="db_elms_careerPK"/>
+            </column>
+            <column name="account_id" type="BIGINT"/>
+            <column name="address" type="VARCHAR(255)"/>
+            <column name="banner_path" type="VARCHAR(255)"/>
+            <column name="career_name" type="VARCHAR(255)"/>
+            <column name="career_path_seo" type="VARCHAR(255)"/>
+            <column name="hotline" type="VARCHAR(255)"/>
+            <column name="lang" type="VARCHAR(255)"/>
+            <column name="latitude" type="DOUBLE PRECISION"/>
+            <column name="logo_path" type="VARCHAR(255)"/>
+            <column name="longitude" type="DOUBLE PRECISION"/>
+            <column name="settings" type="TEXT"/>
+            <column name="created_by" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_by" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ADMIN (generated)" id="1695959721382-2">
+        <createTable tableName="db_elms_db_config">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="db_elms_db_configPK"/>
+            </column>
+            <column name="driver_class_name" type="VARCHAR(255)"/>
+            <column name="initialize" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="max_connection" type="INT"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="url" type="VARCHAR(255)"/>
+            <column name="username" type="VARCHAR(255)"/>
+            <column name="career_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ADMIN (generated)" id="1695959721382-3">
+        <addForeignKeyConstraint baseColumnNames="permission_id" baseTableName="db_elms_permission_group" constraintName="FK3fhlobbbeuhf2o9rji0hos6ul" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="db_elms_permission" validate="true"/>
+    </changeSet>
+    <changeSet author="ADMIN (generated)" id="1695959721382-4">
+        <addForeignKeyConstraint baseColumnNames="career_id" baseTableName="db_elms_db_config" constraintName="FK6f2muw0kyrotnax4cu7iblrq4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="db_elms_career" validate="true"/>
+    </changeSet>
+    <changeSet author="ADMIN (generated)" id="1695959721382-5">
+        <addForeignKeyConstraint baseColumnNames="group_id" baseTableName="db_elms_permission_group" constraintName="FKa5o8eucd6g6gymv0ff27s2t95" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="db_elms_group" validate="true"/>
+    </changeSet>
+    <changeSet author="ADMIN (generated)" id="1695959721382-6">
+        <addForeignKeyConstraint baseColumnNames="account_id" baseTableName="db_elms_career" constraintName="FKkhwfkupqyq24cbofkqutn1hw0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="db_elms_account" validate="true"/>
+    </changeSet>
+    <changeSet author="ADMIN (generated)" id="1695959721382-7">
+        <addForeignKeyConstraint baseColumnNames="group_id" baseTableName="db_elms_account" constraintName="FKt24ved32tlgedttymq32ojjj4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="db_elms_group" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
